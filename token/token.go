@@ -295,7 +295,7 @@ var keywords map[string]Token
 
 func init() {
 	keywords = make(map[string]Token, keywordZ-(keywordA+1))
-	for i := Any + 1; i < Void; i++ {
+	for i := keywordA + 1; i < keywordZ; i++ {
 		keywords[tokens[i]] = i
 	}
 }
