@@ -68,6 +68,10 @@ var tokens = []elt{
 	{token.String, "`\r`", literal},
 	{token.String, "`foo\r\nbar`", literal},
 
+	{token.True, "true", literal},
+	{token.Nil, "nil", literal},
+	{token.False, "false", literal},
+
 	// Operators and delimiters
 	{token.Add, "+", operator},
 	{token.Sub, "-", operator},
@@ -130,13 +134,11 @@ var tokens = []elt{
 	{token.Defer, "defer", keyword},
 	{token.Else, "else", keyword},
 	{token.Fallthrough, "fallthrough", keyword},
-	{token.False, "false", keyword},
 	{token.For, "for", keyword},
 	{token.Func, "func", keyword},
 	{token.Goto, "goto", keyword},
 	{token.If, "if", keyword},
 	{token.Import, "import", keyword},
-	{token.Nil, "nil", keyword},
 	{token.Package, "package", keyword},
 	{token.Return, "return", keyword},
 	{token.Struct, "struct", keyword},

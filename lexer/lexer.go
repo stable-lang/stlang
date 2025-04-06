@@ -73,12 +73,21 @@ func (l *Lexer) Scan() (pos token.Pos, tok token.Token, lit string) {
 	switch ch := l.ch; {
 	case isLetter(ch):
 		lit = l.scanIdent()
-		tok = token.Lookup(lit)
-		switch tok {
-		case token.Ident, token.Break,
-			token.Continue, token.Fallthrough,
-			token.Return:
-			insertSemi = true
+		switch lit {
+		case "nil":
+			tok = token.Nil
+		case "true":
+			tok = token.True
+		case "false":
+			tok = token.False
+		default:
+			tok = token.Lookup(lit)
+			switch tok {
+			case token.Ident, token.Break,
+				token.Continue, token.Fallthrough,
+				token.Return:
+				insertSemi = true
+			}
 		}
 
 	case isDecimal(ch) || (ch == '.' && isDecimal(rune(l.peek()))):
