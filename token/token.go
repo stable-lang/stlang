@@ -21,6 +21,9 @@ const (
 	Float  // 123.45
 	Char   // 'a'
 	String // "abc"
+	Nil    // nil for pointer types
+	True   // true for bool values
+	False  // false for bool values
 	literalZ
 
 	// Operators and delimiters
@@ -88,18 +91,15 @@ const (
 	Defer
 	Else
 	Fallthrough
-	False
 	For
 	Func
 	Goto
 	If
 	Import
-	Nil
 	Package
 	Return
 	Struct
 	Switch
-	True
 	Typedef
 	Var
 	Void
@@ -118,6 +118,9 @@ var tokens = [...]string{
 	Float:  "FLOAT",
 	Char:   "CHAR",
 	String: "STRING",
+	Nil:    "NIL",
+	True:   "TRUE",
+	False:  "FALSE",
 
 	Add:    "+",
 	Sub:    "-",
@@ -179,18 +182,15 @@ var tokens = [...]string{
 	Defer:       "defer",
 	Else:        "else",
 	Fallthrough: "fallthrough",
-	False:       "false",
 	For:         "for",
 	Func:        "func",
 	Goto:        "goto",
 	If:          "if",
 	Import:      "import",
-	Nil:         "nil",
 	Package:     "package",
 	Return:      "return",
 	Struct:      "struct",
 	Switch:      "switch",
-	True:        "true",
 	Typedef:     "typedef",
 	Var:         "var",
 	Void:        "void",
